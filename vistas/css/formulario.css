@@ -1,0 +1,21 @@
+.formulario,input{
+	font-size: black;
+	height: 180%;
+	border-radius: 5px;
+	padding-left: 6px;
+
+}
+.columna{
+	width: 100%;
+
+	
+}
+.fila{
+	margin-bottom: 3rem;
+}
+h1{
+	margin-bottom: 3rem;
+}
+#boton{
+	height: 150%;
+}
