@@ -3,11 +3,9 @@
 <?php include_once("plantillas/header.php"); ?>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-
   <!-- Navbar -->
   <?php include_once("plantillas/navbar.php"); ?>
     <!-- /.navbar -->
-
   <!-- Main Sidebar Container -->
   <?php include_once("plantillas/aside.php"); ?>
 
@@ -18,12 +16,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard v2</h1>
+            <h1 class="m-0">Administrador</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v2</li>
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active">Administrador</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -37,22 +35,11 @@
         <!-- Info boxes -->
           <?php include_once("plantillas/cuadros.php"); ?>
         <!-- /.row -->
-
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
                 <h5 class="card-title">Parqueaderos registrados</h5>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -62,14 +49,13 @@
                   <table class="table table-dark table-striped" >
                     <thead>
                       <tr>
-                        <th scope="col">nombre</th>
-                        <th scope="col">lugar</th>
-                        <th scope="col">fecha</th>
-                        <th scope="col">precio_diurno</th>
-                        <th scope="col">precio_nocturno</th>
-                        <th scope="col">editar</th>
-                        <th scope="col">eliminar</th>
-
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Lugar</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Precio Diurno</th>
+                        <th scope="col">Precio Nocturno</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Eliminar</th>
                       </tr>
                     </thead>
                     <?php include_once("../../controlador/ControladorParqueadero.php");
@@ -79,15 +65,13 @@
                       ?>
                       <tbody>
                         <tr>
-
-                    
                           <th><?php echo $campo['nombre']; ?></td>
                           <td><?php echo $campo['lugar']; ?></td>
                           <td><?php echo $campo['fecha']; ?></td>
                           <td><?php echo $campo['precio_diurno']; ?></td>
                           <td><?php echo $campo['precio_nocturno']; ?></td>
-                          <td><a href="editar.php?editar=<?php echo $campo['id'];?>" class="btn btn-success">editar</a></td>
-                          <td><a href="../../controlador/ControladorParqueadero.php?eliminar=<?php echo $campo['id'];?>" class="btn btn-danger">eliminar</a></td>                          
+                          <td><a href="editar.php?editar=<?php echo $campo['id'];?>" class="btn btn-success">Editar</a></td>
+                          <td><a href="../../controlador/ControladorParqueadero.php?eliminar=<?php echo $campo['id'];?>" class="btn btn-danger">Eliminar</a></td>                          
                         </tr>
                       </tbody>
                       <?php
@@ -95,10 +79,8 @@
                       ?>
                   </table>
                   
-                    <a class="btn btn-warning" href="registrar.php">registrar</a>
+                    <a class="btn btn-warning" href="registrar.php">Registrar</a>
                   
-                  
-
                   <!-- /.col -->
                 </div>
                 <!-- /.row -->
@@ -118,7 +100,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Monthly Recap Report</h5>
+                <h5 class="card-title">Reportes</h5>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -144,7 +126,6 @@
                 <div class="row">
                   <div class="col-md-8">
                     <p class="text-center">
-                      <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
                     </p>
 
                     <div class="chart">
@@ -235,31 +216,14 @@
                       <h5 class="description-header">1200</h5>
                       <span class="description-text">GOAL COMPLETIONS</span>
                     </div>
-                    <!-- /.description-block -->
                   </div>
                 </div>
-                <!-- /.row -->
               </div>
-              <!-- /.card-footer -->
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-
-        <!-- Main row -->
-         
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
     </section>
-    <!-- /.content -->
   </div>
-   
-
-  <!-- Main Footer -->
    <?php include_once("plantillas/footer.php"); ?>
- 
- 
 </body>
 </html>
