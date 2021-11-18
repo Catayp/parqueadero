@@ -49,7 +49,7 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas  fa-print fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">GENERADOR DE TIEMPO Y FACTURAS</h4>
+                        <h4 class="my-3">ADMINISTRADOR DE TIEMPO Y CREADOR DE FACTURAS</h4>
                         <p class="text-muted">Podras controlar el tiempo en el que ingresa y sale un vehiculo. Podras generar una factura al momento de salida del vehiculo.</p>
                     </div>
                     <div class="col-md-4">
