@@ -49,7 +49,7 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas  fa-print fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Generador de tiempo y facturas</h4>
+                        <h4 class="my-3">GENERADOR DE TIEMPO Y FACTURAS</h4>
                         <p class="text-muted">Podras controlar el tiempo en el que ingresa y sale un vehiculo. Podras generar una factura al momento de salida del vehiculo.</p>
                     </div>
                     <div class="col-md-4">
@@ -57,7 +57,7 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-parking fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Orden y administracion</h4>
+                        <h4 class="my-3">ORDEN Y ADMINISTRACIÓN</h4>
                         <p class="text-muted">Nuestro gestor te brindara un administrador, podras saber cuanta ganacia tienes y porque, sabiendo cuantos y que tipos de vehiculos ingresan </p>
                     </div>
                     <div class="col-md-4">
@@ -65,7 +65,7 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Seguridad y control</h4>
+                        <h4 class="my-3">SEGURIDAD Y CONTROL</h4>
                         <p class="text-muted">Al contar con nuestro gestor de parqueadero, le proveemos a tu parqueadero mas vigilancia y control de los automoviles en lugar.</p>
                     </div>
                 </div>
