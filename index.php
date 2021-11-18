@@ -57,7 +57,7 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-parking fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">ORDEN Y ADMINISTRACIÓN</h4>
+                        <h4 class="my-3">ORDEN Y FACILIDAD</h4>
                         <p class="text-muted">Nuestro gestor te brindara un administrador, podras saber cuanta ganacia tienes y porque, sabiendo cuantos y que tipos de vehiculos ingresan </p>
                     </div>
                     <div class="col-md-4">
