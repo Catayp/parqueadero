@@ -18,9 +18,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Registrar</h1>
+            <h1 class="m-0">Editar</h1>
           </div><!-- /.col -->
-     
+          
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -37,7 +37,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Registrar parqueadero</h5>
+                <h5 class="card-title">Editar parqueadero</h5>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -54,40 +54,44 @@
                 <div class="row">
                   <div class="col-2"></div>
                   <div class="col-8">
-                    <h1>Formulario de registro</h1>
+                    <h1>Formulario de edicion</h1>
                     <!--inicio de columnas -->
+                    <?php include("../../controlador/ControladorParqueadero.php"); ?>
                     <form action="../../controlador/ControladorParqueadero.php" method="POST">
-                      <div class="row fila">                  
+                      <div class="row fila">   
+                       <input type="text" name="idvergas" hidden="true" placeholder="Fecha" value="<?php echo $id ?>" class="columna">     
+                         <input type="text" name="idcupos" hidden="true" placeholder="Fecha" value="<?php echo $cupos->id ?>" class="columna">           
                         <div class="col-6">
-                          <input type="date"  min="2021-01-01"   name="fecha" placeholder="Fecha" class="columna">
+                          <input type="text" name="fecha" placeholder="Fecha" value="<?php echo $fecha ?>" class="columna">
                         </div>
                         <div class="col-6" >
-                          <input type="number" required="true"  name="cupos" placeholder="Numero de cupos en el parqueadero" class="columna">
+                          <input type="number" required="true"  name="cupos" placeholder="Numero de cupos en el parqueadero" value="<?php echo $cupos->cantidadTotal ?>"class="columna">
                         </div>
                       </div>
 
                       <div class="row fila">                  
                         <div class="col-12">
-                          <input type="text" name="nombre" placeholder="Nombres completos" class="columna">
+                          <input type="text" name="nombre" placeholder="Nombres completos" value="<?php echo $nombre ?>" class="columna">
                         </div>
                       </div>
 
                       <div class="row fila"> 
                         <div class="col-12">
-                          <input type="text" name="precio" placeholder="Precio" class="columna">
+                          <input type="text" name="precio" placeholder="Precio" value="<?php echo $precio ?>" class="columna">
                         </div>
+                        
                       </div>
 
                       <div class="row fila">                  
                         <div class="col-12 columna">
-                          <input type="text" name="lugar" placeholder="lugar" class="columna">
+                          <input type="text" name="lugar" placeholder="lugar"  value="<?php echo $lugar ?>" class="columna">
                         </div>
                       </div>
               
                       <div class="row fila">
                         <div class="col-4"></div>
                         <div class="col-4">
-                          <input type="submit" name="registrar" value="Registrar" class="columna btn btn-success" id="boton">
+                          <input type="submit" name="actualizar" value="Editar" class="columna btn btn-success" id="boton">
                         </div>
                       </div>
                     </form>

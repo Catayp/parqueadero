@@ -1,7 +1,7 @@
 <?php 
  
 class Vehiculo{
-public $placas,$marcas,$entrada,$salida,$ParqueaderoId;
+public $id,$placas,$color,$descripcion,$marca,$fechaActual,$fechaSalida,$ParqueaderoId,$imagen;
 }
 
  ?>

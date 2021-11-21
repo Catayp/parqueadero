@@ -1,63 +1,57 @@
 <?php 
-include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasParqueadero.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasCupos.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/parqueadero.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/cupos.php");
-$sen= new Sentencias();
- 
+include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasFactura.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasVehiculo.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/Factura.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/Vehiculo.php");
+$senF= new SentenciasFactura();
+ $f= new Factura();
 
-class ControladorVehiculo
+class ControladorFactura
 {
 	
  
-	function mostrar(){
-		global $sen;
-		$ver=$sen->mostrar();
+	function mostrarFactura(){
+		global $senF;
+		$ver=$senF->mostrar();
 		return $ver;
 	}
+	function detalleFactura(){
+		if (isset($_GET['f'])){
+			global $senF;
+			$detalle=$senF->detalleFactura($_GET['f']);
+			return $detalle;
+		}
+	}
 
+	function dias_pasados($fecha_inicial,$fecha_final){
+		$minutos = (strtotime($fecha_inicial)-strtotime($fecha_final))/60;
+		$minutos = abs($minutos);
+		$minutos = floor($minutos);
+		return $minutos;
+	}
+
+	function calcularPrecio($minutos){
+		return 	$minutos*60;
+
+	}
 	
-	 	}
-	 		if (isset($_POST['registrar'])) {
-			echo "entro";
-			$cupos = new Cupos();
-			$cupos->cantidadTotal=$_POST['cupos'];
-			$cupos->llenos=0;
-			$cupos->vacios=$cupos->cantidadTotal;
-			$senCupos= new SentenciasCupo();
-			$senCupos->registrarCupo($cupos);
-			$ultimoCupo=$senCupos->traerUltimo();
-			echo $_POST['cupos'];
-			$p= new Parqueadero();
-			$p->nombre= $_POST['nombre'];
-			$p->lugar= $_POST['lugar'];
-			$p->fecha= $_POST['fecha'];
-			$p->precio_diurno= $_POST['precioD'];
-			$p->precio_nocturno= $_POST['precioN'];
-			$p->cupos=$ultimoCupo; 
+}
 
-			global $sen;
-			$regP= $sen->registrarParqueaderos($p); 
-			header("location:../vistas/admin/parqueadero.php");
+function registrar(){
+	if (isset($_GET['idVehiculo'])) {
+		global $f,$senF;
+		$f->tiempoTotal=$_GET['tiempo'];
+		echo $_GET['tiempo'];
+		$f->precioTotal=$_GET['total'];
+		$f->idVehiculo=$_GET['idVehiculo'];
+		$senF->registrarFacturas($f);
+		header("location:../vistas/empleado/listaFactura.php");
 
-			
-
-
-		
 	}
-	if (isset($_GET['eliminar'])) {
-		$sen->eliminar($_GET['eliminar']);
-		header("location:../vistas/admin/parqueadero.php");
-
-			 
-
-
-			
-
-
-		
-	}
-		
+	
+}
+	
+registrar();	
 
 
  

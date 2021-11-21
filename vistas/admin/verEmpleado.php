@@ -18,9 +18,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Parqueaderos</h1>
+            <h1 class="m-0">Empleados</h1>
           </div><!-- /.col -->
-       
+      
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -37,7 +37,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Parqueaderos registrados</h5>
+                <h5 class="card-title">Empleados registrados</h5>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -58,17 +58,15 @@
                     <thead>
                       <tr>
                         <th scope="col">nombre</th>
-                        <th scope="col">lugar</th>
-                        <th scope="col">fecha</th>
-                        <th scope="col">precio</th>
-                        <th scope="col">cupos</th>
-                        <th scope="col">editar</th>
+                        <th scope="col">edad</th>
+                        <th scope="col">gmail</th>
+                        <th scope="col">clave</th>
+                        <th scope="col">telefono</th>
                         <th scope="col">eliminar</th>
-
                       </tr>
                     </thead>
-                    <?php include_once("../../controlador/ControladorParqueadero.php");
-                    $con= new ControladorParqueadero();
+                    <?php include_once("../../controlador/ControladorUsuario.php");
+                    $con= new ControladorUsuario();
                     $mostrarse=$con->mostrar();
                     while ($campo=mysqli_fetch_array($mostrarse) ) {
                       ?>
@@ -77,22 +75,18 @@
 
                     
                           <th><?php echo $campo['nombre']; ?></td>
-                          <td><?php echo $campo['lugar']; ?></td>
-                          <td><?php echo $campo['fecha']; ?></td>
-                          <td><?php echo $campo['precio']; ?></td>
-                          <td><?php echo $campo['cupos']; ?></td>
-                          <td><a href="editar.php?editar=<?php echo $campo['id'];?>" class="btn btn-success">editar</a></td>
-                          <td><a href="../../controlador/ControladorParqueadero.php?eliminar=<?php echo $campo['id'];?>" class="btn btn-danger">eliminar</a></td>                          
+                          <td><?php echo $campo['edad']; ?></td>
+                          <td><?php echo $campo['gmail']; ?></td>
+                          <td><?php echo $campo['clave']; ?></td>
+                          <td><?php echo $campo['telefono']; ?></td>
+                          <td><a href="../../controlador/ControladorUsuario.php?eliminar=<?php echo $campo['id'];?>" class="btn btn-danger">eliminar</a></td>                          
                         </tr>
                       </tbody>
                       <?php
                         }
                       ?>
                   </table>
-                  
-                    <a class="btn btn-warning" href="registrar.php">registrar</a>
-                  
-                  
+                                   
 
                   <!-- /.col -->
                 </div>

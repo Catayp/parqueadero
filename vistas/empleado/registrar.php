@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include_once("plantillas/header.php"); ?>
+<?php include_once("../../controlador/ControladorVehiculo.php");
+include_once("plantillas/header.php"); ?>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 
@@ -18,9 +19,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Registrar</h1>
+            <h1 class="m-0">Registrar Vehiculo</h1>
           </div><!-- /.col -->
-     
+          
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -37,8 +38,8 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Registrar parqueadero</h5>
-
+                <h5 class="card-title">Registrar Vehiculo</h5>
+                
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -56,38 +57,47 @@
                   <div class="col-8">
                     <h1>Formulario de registro</h1>
                     <!--inicio de columnas -->
-                    <form action="../../controlador/ControladorParqueadero.php" method="POST">
-                      <div class="row fila">                  
-                        <div class="col-6">
-                          <input type="date"  min="2021-01-01"   name="fecha" placeholder="Fecha" class="columna">
+                    <form action="../../controlador/ControladorVehiculo.php" method="POST" enctype="multipart/form-data">
+
+                      
+
+                      <div class="row fila">    
+                        <div class="col-9" >
+                          <input type="text"  name="placas" autocomplete="off" placeholder="Placas del Vehiculo" class="columna">
+                        </div>              
+                        <div class="col-1">
+                          <label style="">color:</label>
+                   
                         </div>
-                        <div class="col-6" >
-                          <input type="number" required="true"  name="cupos" placeholder="Numero de cupos en el parqueadero" class="columna">
+                        <div class="col-2">
+                        <input type="color" name="color" autocomplete="off" placeholder="color" style="width: 50%;border-radius: 10px">
+                   
                         </div>
+                              
                       </div>
 
                       <div class="row fila">                  
                         <div class="col-12">
-                          <input type="text" name="nombre" placeholder="Nombres completos" class="columna">
+                          <input type="text" name="marca" autocomplete="off" placeholder="Marca del Vehiculo " class="columna">
                         </div>
-                      </div>
+        
+                      </div> 
 
-                      <div class="row fila"> 
+                       <div class="row fila">                  
                         <div class="col-12">
-                          <input type="text" name="precio" placeholder="Precio" class="columna">
+                          <textarea style="height: 150px" name="descripcion" autocomplete="off" placeholder="descripcion" class="columna"></textarea>
                         </div>
-                      </div>
-
+        
+                      </div> 
                       <div class="row fila">                  
-                        <div class="col-12 columna">
-                          <input type="text" name="lugar" placeholder="lugar" class="columna">
+                        <div class="col-12">
+                          <input type="file" name="imagen" placeholder="imagen del Vehiculo" style="padding-top: 10px;  height: 120%; background-color: white;color: black" class="columna " id="formFile">
                         </div>
-                      </div>
-              
+                      </div>                                                   
                       <div class="row fila">
                         <div class="col-4"></div>
                         <div class="col-4">
-                          <input type="submit" name="registrar" value="Registrar" class="columna btn btn-success" id="boton">
+                          <input type="submit" name="registro" value="Registrar" class="columna btn btn-success" id="boton">
                         </div>
                       </div>
                     </form>

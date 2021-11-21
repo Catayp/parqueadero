@@ -3,23 +3,40 @@ include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasParqueader
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasCupos.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/parqueadero.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/cupos.php");
-$sen= new Sentencias();
+$sen= new SentenciasParqueadero();
  
 
 class ControladorParqueadero
 {
 	
- 
+	function darFormatoFecha($fechaMuestra){
+
+	 	$fech  =  $fechaMuestra;
+		$fechas = explode("-", $fech);
+		$diaF  =$fechas[2]; 
+		$mesF = $fechas[1]; 
+		$anoF = $fechas[0]; 
+	 	return  $anoF."-".$mesF."-".$diaF ;
+	}
+
 	function mostrar(){
+
 		global $sen;
 		$ver=$sen->mostrar();
 		return $ver;
 	}
 
+	function vistaDetalleFactura($id){
+		global $sen;
+		$vista=$sen->vistaEdicion($id);
+		return $vista;
+
+	}
+
 	
 }
 	 		if (isset($_POST['registrar'])) {
-			echo "entro";
+		 
 			$cupos = new Cupos();
 			$cupos->cantidadTotal=$_POST['cupos'];
 			$cupos->llenos=0;
@@ -27,13 +44,13 @@ class ControladorParqueadero
 			$senCupos= new SentenciasCupo();
 			$senCupos->registrarCupo($cupos);
 			$ultimoCupo=$senCupos->traerUltimo();
-			echo $_POST['cupos'];
+			 
 			$p= new Parqueadero();
+			$Cp= new ControladorParqueadero();
 			$p->nombre= $_POST['nombre'];
 			$p->lugar= $_POST['lugar'];
-			$p->fecha= $_POST['fecha'];
-			$p->precio_diurno= $_POST['precioD'];
-			$p->precio_nocturno= $_POST['precioN'];
+			$p->fecha=$Cp->darFormatoFecha($_POST['fecha'])  ;
+			$p->precio= $_POST['precio'];
 			$p->cupos=$ultimoCupo; 
 			$regP= $sen->registrarParqueaderos($p); 
 			header("location:../vistas/admin/parqueadero.php");
@@ -53,8 +70,7 @@ class ControladorParqueadero
 		$nombre=$campos['nombre'];
 		$lugar=$campos['lugar'];
 		$fecha=$campos['fecha'];
-		$precioDiurno=$campos['precio_diurno'];
-		$precioNocturno=$campos['precio_nocturno'];
+		$precio=$campos['precio'];
 		$cupos = new Cupos();  
 		$senCupos= new SentenciasCupo();
     	$cupos=$senCupos->traerCupo($campos['cupos']);
@@ -73,12 +89,11 @@ class ControladorParqueadero
 		$p->nombre= $_POST['nombre'];
 		$p->lugar= $_POST['lugar'];
 		$p->fecha= $_POST['fecha'];
-		$p->precio_diurno= $_POST['precioD'];
-		$p->precio_nocturno= $_POST['precioN'];
+		$p->precio= $_POST['precio'];
 		$p->cupos=$cupos; 
 		$sen->editar($_POST['idvergas'],$p);  
 
-	//	header("location:../vistas/admin/parqueadero.php");
+	header("location:../vistas/admin/parqueadero.php");
 	}
 
  

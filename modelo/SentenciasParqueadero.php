@@ -2,7 +2,7 @@
 include_once("Conexion.php");
 $c= new Conexion();
 $conexion= $c->conectar();
-class Sentencias{
+class SentenciasParqueadero{
 	
 	function mostrar(){
 		global $conexion;
@@ -13,7 +13,7 @@ class Sentencias{
 	function registrarParqueaderos($par){
 		global $conexion;
 	 $cuposForanea=$par->cupos->id;
-		$regP=mysqli_query($conexion,"INSERT INTO parqueaderos(nombre,lugar,precio_diurno,precio_nocturno,cupos) values('$par->nombre','$par->lugar',$par->precio_diurno,$par->precio_nocturno,'$cuposForanea')");
+		$regP=mysqli_query($conexion,"INSERT INTO parqueaderos(nombre,lugar,fecha,precio,cupos) values('$par->nombre','$par->lugar','$par->fecha',$par->precio,'$cuposForanea')");
 		return $regP;
 	}
 
@@ -32,7 +32,7 @@ class Sentencias{
 	function editar($id,$par){
 		global $conexion;
 		$cuposF=$par->cupos->id;
-		$editar= mysqli_query($conexion,"UPDATE parqueaderos SET nombre='$par->nombre', lugar='$par->lugar',fecha='$par->fecha',precio_diurno=$par->precio_diurno,precio_nocturno=$par->precio_nocturno, cupos= $cuposF WHERE id=$id");
+		$editar= mysqli_query($conexion,"UPDATE parqueaderos SET nombre='$par->nombre', lugar='$par->lugar',fecha='$par->fecha',precio=$par->precio, cupos= $cuposF WHERE id=$id");
 	}
 }
 

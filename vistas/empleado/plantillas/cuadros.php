@@ -1,13 +1,13 @@
 <div class="row">
           <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-eye"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Registrar parqueaderos</span>
+                 <a href="registrar.php" class="info-box-text">Ver mis datos</a>
                 <span class="info-box-number">
-                  10
-                  <small>%</small>
+                  Lista
+                  <small></small>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -17,11 +17,11 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-car"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Home</span>
-                <span class="info-box-number">41,410</span>
+               <a href="parqueadero.php" class="info-box-text">Parqueaderos</a>
+                <span class="info-box-number">Lista</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -34,11 +34,11 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-edit"></i></span>
 
               <div class="info-box-content">
-                <a href="verEmpleado.php" class="info-box-text">ver empleados</a>
-                <span class="info-box-number">2,000</span>
+                <a href="verEmpleado.php" class="info-box-text">Actualizar mis datos</a>
+                <span class="info-box-number">Nuevo</span>
               </div>
               <!-- /.info-box-content -->
             </div>

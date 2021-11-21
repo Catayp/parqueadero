@@ -2,25 +2,29 @@
 include_once("Conexion.php");
 $c= new Conexion();
 $conexion= $c->conectar();
-class Sentencias{
+class SentenciasFactura{
 	
 	function mostrar(){
 		global $conexion;
-		$vista=mysqli_query($conexion,"SELECT * FROM parqueaderos");
+		$vista=mysqli_query($conexion,"SELECT * FROM factura");
 		return $vista;
 	}
 
-	function registrarParqueaderos($par){
+	function registrarFacturas($factura){
 		global $conexion;
-	 $cuposForanea=$par->cupos->id;
-		$regP=mysqli_query($conexion,"INSERT INTO parqueaderos(nombre,lugar,precio_diurno,precio_nocturno,cupos) values('$par->nombre','$par->lugar',$par->precio_diurno,$par->precio_nocturno,'$cuposForanea')");
+		$regP=mysqli_query($conexion,"INSERT INTO factura(tiempo_total, precio_total,vehiculo_id) values($factura->tiempoTotal,$factura->precioTotal,$factura->idVehiculo)");
 		return $regP;
 	}
 
 	function eliminar($id){
 		global $conexion;
-		$eliminar= mysqli_query($conexion,"DELETE FROM parqueaderos WHERE id=$id");
+		$eliminar= mysqli_query($conexion,"DELETE FROM factura WHERE id=$id");
 
+	}
+	function detalleFactura($id){
+		global $conexion;
+		$mostrar=mysqli_query($conexion,"SELECT * FROM factura WHERE id_factura=$id");
+		return $mostrar;
 	}
 }
 

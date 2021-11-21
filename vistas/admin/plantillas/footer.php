@@ -27,6 +27,6 @@
 <script src="../js/Chart.min.js"></script>
 
 <!-- AdminLTE for demo purposes -->
-<script src="../js/demo.js"></script>
+ 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../js/dashboard2.js"></script>

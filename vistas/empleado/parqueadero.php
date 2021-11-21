@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include_once("plantillas/header.php"); ?>
+<?php include_once("../../controlador/ControladorParqueadero.php");
+include_once("plantillas/header.php"); ?>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 
@@ -18,14 +19,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard v2</h1>
+            <h1 class="m-0">Parqueaderos</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v2</li>
-            </ol>
-          </div><!-- /.col -->
+         
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -59,7 +55,44 @@
                 <div class="row">
                   <div class="col-12"></div>
                   <!-- /.col -->
-                  <          
+                  <table class="table table-dark table-striped" >
+                    <thead>
+                      <tr>
+                        <th scope="col">nombre</th>
+                        <th scope="col">lugar</th>
+                        <th scope="col">fecha</th>
+                        <th scope="col">precio</th>
+                        
+                        <th scope="col">cupos</th>
+
+                        <th scope="col">ingresar</th>
+                       
+
+                      </tr>
+                    </thead>
+                    <?php include_once("../../controlador/ControladorParqueadero.php");
+                    $con= new ControladorParqueadero();
+                    $mostrarse=$con->mostrar();
+                    while ($campo=mysqli_fetch_array($mostrarse) ) {
+                      ?>
+                      <tbody>
+                        <tr>
+                          <th><?php echo $campo['nombre']; ?></td>
+                          <td><?php echo $campo['lugar']; ?></td>
+                          <td><?php echo $campo['fecha']; ?></td>
+                          <td><?php echo $campo['precio']; ?></td>
+                          
+                          <td><?php echo $campo['cupos']; ?></td>
+                          <td><a href="listaVehiculo.php?ingresar=<?php echo $campo['id'];?>" class="btn btn-warning">ingresar</a></td>                  
+                        </tr>
+                      </tbody>
+
+                      <?php
+                   
+                        }
+                       
+                      ?>
+                  </table>                  
 
                   <!-- /.col -->
                 </div>
