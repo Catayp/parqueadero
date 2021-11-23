@@ -21,6 +21,11 @@ class SentenciasUsuario{
 		$ver= mysqli_query($conexion,"SELECT * FROM usuario");
 		return $ver;
 	}
+	function verPorId($id){
+		global $conexion;
+		$ver= mysqli_query($conexion,"SELECT * FROM usuario where id=$id");
+		return $ver;
+	}
 
 	function eliminar($id){
 		global $conexion;

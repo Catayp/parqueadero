@@ -2,7 +2,7 @@
 <html lang="en">
  
 <?php include_once("../../controlador/ControladorVehiculo.php");
-               $con= new ControladorVehiculo();       
+               $conV= new ControladorVehiculo();       
  include_once("plantillas/header.php");
    ?>
 
@@ -60,7 +60,7 @@
                   <!-- /.col -->
                 
                   <?php 
-                    $mostrarse=$con->mostrar();
+                    $mostrarse=$conV->mostrar();
                      
                     
                     while ($campo=mysqli_fetch_array($mostrarse)) {

@@ -14,4 +14,6 @@
   <!--link mi css -->
   <link rel="stylesheet" type="text/css" href="../css/formulario.css">
   <link rel="stylesheet" type="text/css" href="../css/listaVehiculo.css">
+  <?php 
+  session_start(); ?>
 </head>

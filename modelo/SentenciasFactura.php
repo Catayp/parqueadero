@@ -26,6 +26,12 @@ class SentenciasFactura{
 		$mostrar=mysqli_query($conexion,"SELECT * FROM factura WHERE id_factura=$id");
 		return $mostrar;
 	}
+
+	function traerPrecio($idV){
+		global $conexion;
+		$precio=mysqli_query($conexion,"SELECT * FROM vehiculo INNER JOIN parqueaderos on id=parqueadero_id INNER JOIN factura on vehiculo_id=id_vehiculo where id_vehiculo=10");
+		return $precio;
+	}
 }
 
  ?>

@@ -1,7 +1,7 @@
 <?php 
 
 class Usuario{
-	public $nombre,$edad,$gmail,$clave,$telefono,$rol;
+	public $id, $nombre,$edad,$gmail,$clave,$telefono,$rol;
 	
 }
 

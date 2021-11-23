@@ -1,8 +1,8 @@
 <?php 
-session_start();
+
   include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasVehiculo.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/Vehiculo.php");
-$sen= new Sentencias();
+$senV= new SentenciasV();
 date_default_timezone_set("America/Bogota");
   
 $vehiculo= new Vehiculo();
@@ -13,8 +13,8 @@ class ControladorVehiculo{
 			  
 			$_SESSION['parqId']=$_GET['ingresar'];
 
-			global $sen;
-			$ver=$sen->mostrar($_GET['ingresar']);
+			global $senV;
+			$ver=$senV->mostrar($_GET['ingresar']);
 			return $ver;
 		}	
 	}
@@ -28,32 +28,28 @@ class ControladorVehiculo{
 
 	function mostrarDetalle(){
 		if (isset($_GET['id'])) {
-			global $sen;
-			$detalle= $sen->verDetalle($_GET['id']);
+			global $senV;
+			$detalle= $senV->verDetalle($_GET['id']);
 			return $detalle;
 		}
 	}
 	
 
 	function vistaDetalleFactura($idVehiculo){
-		global $sen,$vehiculo;
+		global $senV,$vehiculo;
 		$vehiculo->id=$idVehiculo;
-		$detalleF=$sen->verDetalle($vehiculo->id);
+		$detalleF=$senV->verDetalle($vehiculo->id);
 		return $detalleF;
 
 	}
-}
- 
+} 
 
 //$fecha_dada= "2021/11/17 5:19:16";
- 
-
- 
- 
-
 function registrarVehiculo(){
+	
 	if (isset($_POST['registro'])) {
-		global $vehiculo,$sen;
+		session_start();
+		global $vehiculo,$senV;
 		$vehiculo->placas=$_POST['placas'];
 		$vehiculo->marca=$_POST['marca'];
 		$vehiculo->color=$_POST['color'];
@@ -71,7 +67,7 @@ function registrarVehiculo(){
 			{
 				$vehiculo->imagen="defecto.jpg";
 			}
-			$sen->registrar($vehiculo);
+			$senV->registrar($vehiculo);
       header("location:../vistas/empleado/listaVehiculo.php?ingresar=$vehiculo->parqueaderoId");
 		
 	}

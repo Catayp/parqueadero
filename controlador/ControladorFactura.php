@@ -30,14 +30,19 @@ class ControladorFactura
 		return $minutos;
 	}
 
-	function calcularPrecio($minutos){
-		return 	$minutos*60;
+	function calcularPrecio($minutos,$idV){
+		global $senF;
+		$consulta=$senF->traerPrecio($idV);
+		$campo=mysqli_fetch_array($consulta);
+		$precio=$campo["precio"];
+		$result=$minutos*$precio;
+		return $result;
 
 	}
 	
 }
 
-function registrar(){
+function registrarF(){
 	if (isset($_GET['idVehiculo'])) {
 		global $f,$senF;
 		$f->tiempoTotal=$_GET['tiempo'];
@@ -51,7 +56,7 @@ function registrar(){
 	
 }
 	
-registrar();	
+registrarF();	
 
 
  

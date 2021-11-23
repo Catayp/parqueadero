@@ -13,7 +13,11 @@
           <img src="../assets/img/usuario.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Hongo</a>
+          <a href="#" class="d-block"><?php include_once("../../controlador/ControladorUsuario.php");
+          $us= new ControladorUsuario(); 
+          $us->sesionEmpleado();
+
+           ?></a>
         </div>
       </div>
 

@@ -3,7 +3,8 @@ include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasParqueader
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasCupos.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/parqueadero.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/cupos.php");
-$sen= new SentenciasParqueadero();
+
+$senP= new SentenciasParqueadero();
  
 
 class ControladorParqueadero
@@ -21,14 +22,14 @@ class ControladorParqueadero
 
 	function mostrar(){
 
-		global $sen;
-		$ver=$sen->mostrar();
+		global $senP;
+		$ver=$senP->mostrar();
 		return $ver;
 	}
 
 	function vistaDetalleFactura($id){
-		global $sen;
-		$vista=$sen->vistaEdicion($id);
+		global $senP;
+		$vista=$senP->vistaEdicion($id);
 		return $vista;
 
 	}
@@ -52,20 +53,20 @@ class ControladorParqueadero
 			$p->fecha=$Cp->darFormatoFecha($_POST['fecha'])  ;
 			$p->precio= $_POST['precio'];
 			$p->cupos=$ultimoCupo; 
-			$regP= $sen->registrarParqueaderos($p); 
+			$regP= $senP->registrarParqueaderos($p); 
 			header("location:../vistas/admin/parqueadero.php");
 
 		
 	}
 	if (isset($_GET['eliminar'])) {
-		$sen->eliminar($_GET['eliminar']);
+		$senP->eliminar($_GET['eliminar']);
 		header("location:../vistas/admin/parqueadero.php");
 		
 	}
 		
 	if (isset($_GET['editar'])) {
 		$id= $_GET['editar'];
-		$mostrar=$sen->vistaEdicion($id);
+		$mostrar=$senP->vistaEdicion($id);
 		$campos= mysqli_fetch_array($mostrar);
 		$nombre=$campos['nombre'];
 		$lugar=$campos['lugar'];
@@ -91,7 +92,7 @@ class ControladorParqueadero
 		$p->fecha= $_POST['fecha'];
 		$p->precio= $_POST['precio'];
 		$p->cupos=$cupos; 
-		$sen->editar($_POST['idvergas'],$p);  
+		$senP->editar($_POST['idvergas'],$p);  
 
 	header("location:../vistas/admin/parqueadero.php");
 	}

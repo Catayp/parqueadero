@@ -2,7 +2,7 @@
 include_once("Conexion.php");
 $c= new Conexion();
 $conexion= $c->conectar();
-class Sentencias{
+class SentenciasV{
 	
 	function mostrar($id){
 		global $conexion;
