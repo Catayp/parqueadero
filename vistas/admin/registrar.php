@@ -12,7 +12,7 @@
   <?php include_once("plantillas/aside.php"); ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper"style="background-color: #d6d8db;">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -35,7 +35,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <div class="card">
+            <div class="card"style="background-color: #ffffff; color: black">
               <div class="card-header">
                 <h5 class="card-title">Registrar parqueadero</h5>
 

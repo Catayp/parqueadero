@@ -1,6 +1,6 @@
 <div class="row">
           <div class="col-12 col-sm-6 col-md-4">
-            <div class="info-box">
+            <div class="info-box"style="background-color: #ffffff; color: black">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-book"></i></span>
 
               <div class="info-box-content">
@@ -16,7 +16,7 @@
           </div>
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-4">
-            <div class="info-box mb-3">
+            <div class="info-box mb-3"style="background-color: #ffffff; color: black">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-car"></i></span>
 
               <div class="info-box-content">
@@ -33,7 +33,7 @@
           <div class="clearfix hidden-md-up"></div>
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-4">
-            <div class="info-box mb-3">
+            <div class="info-box mb-3" style="background-color: #ffffff; color: black">
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">

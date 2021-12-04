@@ -33,28 +33,30 @@ class ControladorParqueadero
 		return $vista;
 
 	}
-
+	function cupos(){
+		
+	}
 	
 }
-	 		if (isset($_POST['registrar'])) {
+	 if (isset($_POST['registrar'])) {
 		 
-			$cupos = new Cupos();
-			$cupos->cantidadTotal=$_POST['cupos'];
-			$cupos->llenos=0;
-			$cupos->vacios=$cupos->cantidadTotal;
-			$senCupos= new SentenciasCupo();
-			$senCupos->registrarCupo($cupos);
-			$ultimoCupo=$senCupos->traerUltimo();
+		$cupos = new Cupos();
+		$cupos->cantidadTotal=$_POST['cupos'];
+		$cupos->llenos=0;
+		$cupos->vacios=$cupos->cantidadTotal;
+		$senCupos= new SentenciasCupo();
+		$senCupos->registrarCupo($cupos);
+		$ultimoCupo=$senCupos->traerUltimo();
 			 
-			$p= new Parqueadero();
-			$Cp= new ControladorParqueadero();
-			$p->nombre= $_POST['nombre'];
-			$p->lugar= $_POST['lugar'];
-			$p->fecha=$Cp->darFormatoFecha($_POST['fecha'])  ;
-			$p->precio= $_POST['precio'];
-			$p->cupos=$ultimoCupo; 
-			$regP= $senP->registrarParqueaderos($p); 
-			header("location:../vistas/admin/parqueadero.php");
+		$p= new Parqueadero();
+		$Cp= new ControladorParqueadero();
+		$p->nombre= $_POST['nombre'];
+		$p->lugar= $_POST['lugar'];
+		$p->fecha=$Cp->darFormatoFecha($_POST['fecha'])  ;
+		$p->precio= $_POST['precio'];
+		$p->cupos=$ultimoCupo; 
+		$regP= $senP->registrarParqueaderos($p); 
+		header("location:../vistas/admin/parqueadero.php");
 
 		
 	}

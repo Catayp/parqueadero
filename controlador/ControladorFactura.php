@@ -1,6 +1,6 @@
 <?php 
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasFactura.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasVehiculo.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/controlador/ControladorVehiculo.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/Factura.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/Vehiculo.php");
 $senF= new SentenciasFactura();
@@ -50,6 +50,8 @@ function registrarF(){
 		$f->precioTotal=$_GET['total'];
 		$f->idVehiculo=$_GET['idVehiculo'];
 		$senF->registrarFacturas($f);
+		$vehiculo= new ControladorVehiculo();
+		$vehiculo->cambiarEstadoVehiculo($_GET['idVehiculo']);
 		header("location:../vistas/empleado/listaFactura.php");
 
 	}

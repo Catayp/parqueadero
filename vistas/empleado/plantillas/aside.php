@@ -1,4 +1,4 @@
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #102e4c">
     <!-- Brand Logo -->
     <div align="center">
       <!--  <img src="dist/img/AdminLTELogo.png" alt="Administrador de Parqueadero" class="brand-image img-circle elevation-3" style="opacity: .8"> --><br>

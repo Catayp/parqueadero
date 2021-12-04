@@ -42,6 +42,12 @@ class ControladorVehiculo{
 		return $detalleF;
 
 	}
+
+	function cambiarEstadoVehiculo($idVehiculo){
+		global $senV;
+		$idParq=$senV->cambiarEstado($idVehiculo);
+		return $idParq;
+	}
 } 
 
 //$fecha_dada= "2021/11/17 5:19:16";
@@ -72,6 +78,9 @@ function registrarVehiculo(){
 		
 	}
 }
+
+
+
 $control= new ControladorVehiculo();
 $control->mostrar();
 registrarVehiculo();

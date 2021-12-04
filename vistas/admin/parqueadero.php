@@ -12,13 +12,13 @@
   <?php include_once("plantillas/aside.php"); ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color: #d6d8db;">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Parqueaderos</h1>
+            <h1 class="m-0" style="color: black">Parqueaderos</h1>
           </div><!-- /.col -->
        
         </div><!-- /.row -->
@@ -35,7 +35,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <div class="card">
+            <div class="card" style="background-color: #ffffff; color: black">
               <div class="card-header">
                 <h5 class="card-title">Parqueaderos registrados</h5>
 
@@ -54,7 +54,7 @@
                 <div class="row">
                   <div class="col-12"></div>
                   <!-- /.col -->
-                  <table class="table table-dark table-striped" >
+                  <table class="table table-secondary table-striped" >
                     <thead>
                       <tr>
                         <th scope="col">nombre</th>
@@ -111,7 +111,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <div class="card">
+            <div class="card"style="background-color: #ffffff; color: black">
               <div class="card-header">
                 <h5 class="card-title">Monthly Recap Report</h5>
 

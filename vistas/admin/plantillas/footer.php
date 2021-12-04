@@ -1,4 +1,4 @@
-<footer class="main-footer">
+<footer class="main-footer" style="background-color: #102e4c">
     <strong>Copyright © Gestion parqueadero 2021</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">

@@ -10,7 +10,7 @@
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../css/OverlayScrollbars.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../css/adminlte.min.css">
+  <link rel="stylesheet" href="../css/adminlte.min2.css">
   <!--link mi css -->
   <link rel="stylesheet" type="text/css" href="../css/formulario.css">
   <link rel="stylesheet" type="text/css" href="../css/listaVehiculo.css">

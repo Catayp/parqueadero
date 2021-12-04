@@ -19,7 +19,7 @@ include_once("plantillas/header.php"); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Parqueaderos</h1>
+            <h1 class="m-0" style="color: black">Parqueaderos</h1>
           </div><!-- /.col -->
          
         </div><!-- /.row -->
@@ -55,7 +55,7 @@ include_once("plantillas/header.php"); ?>
                 <div class="row">
                   <div class="col-12"></div>
                   <!-- /.col -->
-                  <table class="table table-dark table-striped" >
+                  <table class="table table-secondary table-striped" >
                     <thead>
                       <tr>
                         <th scope="col">nombre</th>
