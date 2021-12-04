@@ -4,8 +4,9 @@
   <title>Sistema Parqueadero</title>
 
   <!-- Google Font: Source Sans Pro -->
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ <link rel="stylesheet" type="text/css" href="../css/css/all.min.css">
   <!-- Font Awesome Icons -->
+ 
   <link rel="stylesheet" href="../css/all.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../css/OverlayScrollbars.min.css">
