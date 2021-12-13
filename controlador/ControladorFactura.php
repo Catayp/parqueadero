@@ -36,6 +36,7 @@ class ControladorFactura
 		$campo=mysqli_fetch_array($consulta);
 		$precio=$campo["precio"];
 		$result=$minutos*$precio;
+		
 		return $result;
 
 	}
@@ -52,6 +53,7 @@ function registrarF(){
 		$senF->registrarFacturas($f);
 		$vehiculo= new ControladorVehiculo();
 		$vehiculo->cambiarEstadoVehiculo($_GET['idVehiculo']);
+		$vehiculo->traerParqVehiculo($_GET['idVehiculo']);
 		header("location:../vistas/empleado/listaFactura.php");
 
 	}

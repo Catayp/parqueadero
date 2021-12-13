@@ -1,7 +1,10 @@
 <?php 
 
-  include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasVehiculo.php");
+ include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/SentenciasVehiculo.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/modelo/entidades/Vehiculo.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/parqueadero/controlador/ControladorParqueadero.php");
+
+$par= new ControladorParqueadero();
 $senV= new SentenciasV();
 date_default_timezone_set("America/Bogota");
   
@@ -48,6 +51,13 @@ class ControladorVehiculo{
 		$idParq=$senV->cambiarEstado($idVehiculo);
 		return $idParq;
 	}
+
+	function traerParqVehiculo($idVehiculo){
+		global $senV, $par;
+		$parqId=$senV->traerParqVehiculo($idVehiculo);
+		$par->restarCuposLlenos($parqId);
+	}
+	
 } 
 
 //$fecha_dada= "2021/11/17 5:19:16";
@@ -73,16 +83,19 @@ function registrarVehiculo(){
 			{
 				$vehiculo->imagen="defecto.jpg";
 			}
-			$senV->registrar($vehiculo);
-      header("location:../vistas/empleado/listaVehiculo.php?ingresar=$vehiculo->parqueaderoId");
+		$senV->registrar($vehiculo);
+		$parqVehiculo=$senV->traeUltimoVehiculo();
+		global $par;
+		$par->sumarCupos($parqVehiculo);
+    	header("location:../vistas/empleado/listaVehiculo.php?ingresar=$vehiculo->parqueaderoId");
 		
 	}
 }
 
 
-
+registrarVehiculo();
 $control= new ControladorVehiculo();
 $control->mostrar();
-registrarVehiculo();
+
 
  ?>

@@ -15,19 +15,19 @@ class ControladorUsuario{
 	}
 
 	function encontrarPorId($id){
-			global $usuario;
-			global $sen;
-			$lista=$sen->verPorId($id);
-			$perm=mysqli_fetch_array($lista);
-			$usuario->id=$perm['id'];
-			$usuario->nombre=$perm['nombre'];
-			$usuario->edad=$perm['edad'];
-			$usuario->gmail=$perm['gmail'];
-			$usuario->clave=$perm['clave'];
-			$usuario->telefono=$perm['telefono'];
-			$usuario->rol=$perm['rol_id'];
+		global $usuario;
+		global $sen;
+		$lista=$sen->verPorId($id);
+		$perm=mysqli_fetch_array($lista);
+		$usuario->id=$perm['id'];
+		$usuario->nombre=$perm['nombre'];
+		$usuario->edad=$perm['edad'];
+		$usuario->gmail=$perm['gmail'];
+		$usuario->clave=$perm['clave'];
+		$usuario->telefono=$perm['telefono'];
+		$usuario->rol=$perm['rol_id'];
 			 
-			  return $usuario;	
+		return $usuario;	
 	}
 
 	function sesionEmpleado(){
@@ -71,10 +71,26 @@ class ControladorUsuario{
 		 
 		}
 	}
+
+	function vistaEdicion(){
+		if ($_GET['usu']) {
+			global $sen,$usuario;
+			$usuario->id=$_GET['usu'];
+			$u=$sen->verPorId($usuario->id);
+			$campo=mysqli_fetch_array($u);
+			$usuario->nombre=$campo['nombre'];
+			$usuario->edad=$campo['edad'];
+			$usuario->gmail=$campo['gmail'];
+			$usuario->clave=$campo['clave'];
+			$usuario->telefono=$campo['telefono'];
+		}
+		return $usuario;
+	}
+
 }
 
 
-function registrar(){
+function registrarUsuario(){
 	if (isset($_POST['reg'])) {
 		global $usuario;
 		$usuario->nombre= $_POST['nombre'];
@@ -92,8 +108,8 @@ function registrar(){
 		}
 	}
 	else{		 
-		}
 	}
+}
 
 function login(){
 	if (isset($_POST['ini'])) {
@@ -138,10 +154,29 @@ function cerrarSesion(){
 		header("location:../");
 	}
 }
+
+function actualizarUsuario(){
+	if (isset($_POST['actualizar'])) {
+		global $sen,$usuario;
+		$usuario->id= $_POST['idUs'];
+		$usuario->nombre= $_POST['nombre'];
+		$usuario->edad= $_POST['edad'];
+		$usuario->gmail= $_POST['email'];
+		$usuario->clave= $_POST['clave'];
+		$usuario->telefono= $_POST['telefono'];
+		$sen->edicion($usuario);
+		header("location:../vistas/empleado/parqueadero.php");
+	}
+}
+
+
+
 	 
 	 
-registrar();
+registrarUsuario();
 login();
+actualizarUsuario();
 borrar();
 cerrarSesion();
+
  ?>
