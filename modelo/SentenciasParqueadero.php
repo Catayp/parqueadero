@@ -13,7 +13,7 @@ class SentenciasParqueadero{
 	function registrarParqueaderos($par){
 		global $conexion;
 	 $cuposForanea=$par->cupos->id;
-		$regP=mysqli_query($conexion,"INSERT INTO parqueaderos(nombre,lugar,fecha,precio,cupos) values('$par->nombre','$par->lugar','$par->fecha',$par->precio,'$cuposForanea')");
+		$regP=mysqli_query($conexion,"INSERT INTO parqueaderos(nombre,lugar,fecha,precio,cupos,foto) values('$par->nombre','$par->lugar','$par->fecha',$par->precio,'$cuposForanea','$par->imagen')");
 		return $regP;
 	}
 

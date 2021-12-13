@@ -56,10 +56,14 @@ include_once("plantillas/header.php");
               <!-- /.card-header -->
               <?php 
               include_once("../../controlador/ControladorFactura.php");
+              include_once("../../controlador/ControladorParqueadero.php");
               $factura= new ControladorFactura(); 
+              $parq= new ControladorParqueadero();
 
               $detalle=$vehiculo->mostrarDetalle();
               $campo=mysqli_fetch_array($detalle);
+              $nomP=$parq->vistaDetalleFactura($campo['parqueadero_id']);
+              $espacio=mysqli_fetch_array($nomP);
                 ?>
               <div class="card-body">
                 <div class="row">
@@ -71,7 +75,7 @@ include_once("plantillas/header.php");
                   <div class="col-5" style="border:0px solid gray; background-color:white;">
                     <!-- Datos del vendedor y titulo del producto -->
                     <h3><?php echo($campo['marcas']); ?></h3>    
-                    <h5 style="color:#337ab7">En el parqueadero xxx</h5>
+                    <h5 style="color:#337ab7">En el parqueadero <?php echo $espacio['nombre']; ?></h5>
         
                     <!-- Precios -->
                     <h6 class="title-price"><small>PLACAS</small></h6>
@@ -122,7 +126,8 @@ include_once("plantillas/header.php");
                         </p>
                       </div>
                     </div> 
-                  </div>    
+                  </div> 
+                  <a class="btn btn-warning" href="listaVehiculo.php?ingresar=<?php echo($campo['parqueadero_id']); ?>">volver</a>   
                 </div>
                    
                 <!-- /.row -->

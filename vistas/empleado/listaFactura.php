@@ -86,7 +86,7 @@
                      <?php  }?>
                   </table>
                   
-                    <a class="btn btn-warning" href="registrar.php">volver</a>
+                    
                 </div>
                   
                 <!-- /.row -->

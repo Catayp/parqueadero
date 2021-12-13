@@ -35,7 +35,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <div class="card">
+            <div class="card" style="background-color: white; color: black">
               <div class="card-header">
                 <h5 class="card-title">Editar parqueadero</h5>
 
@@ -62,7 +62,7 @@
                        <input type="text" name="idvergas" hidden="true" placeholder="Fecha" value="<?php echo $id ?>" class="columna">     
                          <input type="text" name="idcupos" hidden="true" placeholder="Fecha" value="<?php echo $cupos->id ?>" class="columna">           
                         <div class="col-6">
-                          <input type="text" name="fecha" placeholder="Fecha" value="<?php echo $fecha ?>" class="columna">
+                          <input type="text" required="true" name="fecha" placeholder="Fecha" value="<?php echo $fecha ?>" class="columna">
                         </div>
                         <div class="col-6" >
                           <input type="number" required="true"  name="cupos" placeholder="Numero de cupos en el parqueadero" value="<?php echo $cupos->cantidadTotal ?>"class="columna">
@@ -71,20 +71,20 @@
 
                       <div class="row fila">                  
                         <div class="col-12">
-                          <input type="text" name="nombre" placeholder="Nombres completos" value="<?php echo $nombre ?>" class="columna">
+                          <input type="text" required="true" name="nombre" placeholder="Nombres completos" value="<?php echo $nombre ?>" class="columna">
                         </div>
                       </div>
 
                       <div class="row fila"> 
                         <div class="col-12">
-                          <input type="text" name="precio" placeholder="Precio" value="<?php echo $precio ?>" class="columna">
+                          <input type="text" required="true" name="precio" placeholder="Precio" value="<?php echo $precio ?>" class="columna">
                         </div>
                         
                       </div>
 
                       <div class="row fila">                  
                         <div class="col-12 columna">
-                          <input type="text" name="lugar" placeholder="lugar"  value="<?php echo $lugar ?>" class="columna">
+                          <input type="text" required="true" name="lugar" placeholder="lugar"  value="<?php echo $lugar ?>" class="columna">
                         </div>
                       </div>
               

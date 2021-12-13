@@ -2,7 +2,7 @@
 <html lang="en">
  
 <?php include_once("../../controlador/ControladorVehiculo.php");
-               $conV= new ControladorVehiculo();       
+  $conV= new ControladorVehiculo();       
  include_once("plantillas/header.php");
    ?>
 
@@ -36,7 +36,10 @@
         <!-- Info boxes -->
           <?php include_once("plantillas/cuadros.php"); ?>
         <!-- /.row -->
-
+        <?php 
+         
+          
+        ?>
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -58,12 +61,10 @@
                 <div class="row">
                   
                   <!-- /.col -->
-                
-                  <?php 
-                    $mostrarse=$conV->mostrar();
-                     
-                    
-                    while ($campo=mysqli_fetch_array($mostrarse)) {
+                <?php  
+                  $mostrarse=$conV->mostrar(); 
+                  
+                  while ($campo=mysqli_fetch_array($mostrarse)) {
                   ?>
     <div class="col-md-3 col-sm-6 mb-5 p-2">
         <div class="scard rounded">

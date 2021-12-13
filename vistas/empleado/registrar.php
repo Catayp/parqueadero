@@ -63,7 +63,7 @@ include_once("plantillas/header.php"); ?>
 
                       <div class="row fila">    
                         <div class="col-9" >
-                          <input type="text"  name="placas" autocomplete="off" placeholder="Placas del Vehiculo" class="columna">
+                          <input type="text" required="true"  name="placas" autocomplete="off" placeholder="Placas del Vehiculo" class="columna">
                         </div>              
                         <div class="col-1">
                           <label style="">color:</label>
@@ -78,14 +78,14 @@ include_once("plantillas/header.php"); ?>
 
                       <div class="row fila">                  
                         <div class="col-12">
-                          <input type="text" name="marca" autocomplete="off" placeholder="Marca del Vehiculo " class="columna">
+                          <input type="text" name="marca" required="true" autocomplete="off" placeholder="Marca del Vehiculo " class="columna">
                         </div>
         
                       </div> 
 
                        <div class="row fila">                  
                         <div class="col-12">
-                          <textarea style="height: 150px" name="descripcion" autocomplete="off" placeholder="descripcion" class="columna"></textarea>
+                          <textarea style="height: 150px"  maxlength="30" name="descripcion" autocomplete="off" placeholder="descripcion" class="columna"></textarea>
                         </div>
         
                       </div> 

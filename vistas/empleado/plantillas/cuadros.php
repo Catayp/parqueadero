@@ -4,7 +4,7 @@
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-eye"></i></span>
 
               <div class="info-box-content">
-                 <a href="registrar.php" class="info-box-text">Ver mis datos</a>
+                 <a href="listaFactura.php" class="info-box-text">Ver facturas</a>
                 <span class="info-box-number">
                   Lista
                   <small></small>
@@ -37,7 +37,8 @@
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-edit"></i></span>
 
               <div class="info-box-content">
-                <a href="verEmpleado.php" class="info-box-text">Actualizar mis datos</a>
+                <?php include_once("../../controlador/ControladorUsuario.php"); ?>
+                <a href="actualizarDatos.php?usu=<?php echo($_SESSION['idUsuario']) ?>"  class="info-box-text">Actualizar mis datos</a>
                 <span class="info-box-number">Nuevo</span>
               </div>
               <!-- /.info-box-content -->

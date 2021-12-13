@@ -31,6 +31,11 @@ class SentenciasUsuario{
 		global $conexion;
 		$borrar= mysqli_query($conexion,"DELETE FROM usuario WHERE id=$id");
 	}
+
+	function edicion($usuario){
+		global $conexion;
+		mysqli_query($conexion,"UPDATE usuario SET nombre= '$usuario->nombre',edad=$usuario->edad, gmail='$usuario->gmail', clave='$usuario->clave',telefono= $usuario->telefono WHERE id=$usuario->id");
+	}
 }
 
  ?>

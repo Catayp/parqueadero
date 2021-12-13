@@ -56,10 +56,10 @@
                   <div class="col-8">
                     <h1>Formulario de registro</h1>
                     <!--inicio de columnas -->
-                    <form action="../../controlador/ControladorParqueadero.php" method="POST">
+                    <form action="../../controlador/ControladorParqueadero.php" method="POST" enctype="multipart/form-data">
                       <div class="row fila">                  
                         <div class="col-6">
-                          <input type="date"  min="2021-01-01"   name="fecha" placeholder="Fecha" class="columna">
+                          <input type="date" required="true"  min="2021-01-01"   name="fecha" placeholder="Fecha" class="columna">
                         </div>
                         <div class="col-6" >
                           <input type="number" required="true"  name="cupos" placeholder="Numero de cupos en el parqueadero" class="columna">
@@ -68,21 +68,26 @@
 
                       <div class="row fila">                  
                         <div class="col-12">
-                          <input type="text" name="nombre" placeholder="Nombres completos" class="columna">
+                          <input type="text" name="nombre" required="true" placeholder="Nombres completos" class="columna">
                         </div>
                       </div>
 
                       <div class="row fila"> 
                         <div class="col-12">
-                          <input type="text" name="precio" placeholder="Precio" class="columna">
+                          <input type="number" name="precio" required="true" placeholder="Precio" class="columna">
                         </div>
                       </div>
 
                       <div class="row fila">                  
                         <div class="col-12 columna">
-                          <input type="text" name="lugar" placeholder="lugar" class="columna">
+                          <input type="text" name="lugar" required="true" placeholder="lugar" class="columna">
                         </div>
                       </div>
+                      <div class="row fila">                  
+                        <div class="col-12">
+                          <input type="file" name="imagen" placeholder="imagen del Vehiculo" class="columna " id="formFile">
+                        </div>
+                      </div>       
               
                       <div class="row fila">
                         <div class="col-4"></div>

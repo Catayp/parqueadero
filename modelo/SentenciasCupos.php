@@ -24,8 +24,7 @@ class SentenciasCupo{
 	}
 	function actualizarCupo($cupos){
 		global $conexion;
-		echo $cupos->llenos;
-		$editC=mysqli_query($conexion,"UPDATE cupos SET cantidad_total=$cupos->cantidadTotal,vacios=($cupos->cantidadTotal-$cupos->llenos) WHERE id_cupos=$cupos->id");
+		$editC=mysqli_query($conexion,"UPDATE cupos SET cantidad_total=$cupos->cantidadTotal,vacios=($cupos->cantidadTotal-$cupos->llenos),llenos=$cupos->llenos WHERE id_cupos=$cupos->id");
 	}
 	function traerCupo($id){
 		global $conexion;
@@ -39,6 +38,11 @@ class SentenciasCupo{
 		
 		}
 		return $cupos;
+	}
+
+	function restarLlenos($cupos){
+		global $conexion;
+		$editC=mysqli_query($conexion,"UPDATE cupos SET cantidad_total=$cupos->cantidadTotal,vacios=($cupos->vacios),llenos=$cupos->llenos WHERE id_cupos=$cupos->id");
 	}
 }
 

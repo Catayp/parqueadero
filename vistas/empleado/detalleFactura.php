@@ -2,10 +2,12 @@
 <html lang="en">
  
 <?php include_once("../../controlador/ControladorVehiculo.php");
-$vehiculo= new ControladorVehiculo(); 
-include_once("../../controlador/ControladorFactura.php");
-$factura= new ControladorFactura();       
+ include_once("../../controlador/ControladorParqueadero.php");
+include_once("../../controlador/ControladorFactura.php");      
 include_once("plantillas/header.php");
+$vehiculo= new ControladorVehiculo(); 
+$factura= new ControladorFactura(); 
+$parqueadero= new ControladorParqueadero();
 ?>
 <link rel="stylesheet" type="text/css" href="../css/factura.css">
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -60,19 +62,16 @@ include_once("plantillas/header.php");
               $detalleFactura=$factura->detalleFactura();
               $campoF=mysqli_fetch_array($detalleFactura);
               $idVehiculo=$campoF['vehiculo_id'];
-              
               $detalleVehiculo=$vehiculo->vistaDetalleFactura($idVehiculo);
               $campoV=mysqli_fetch_array($detalleVehiculo);
               $idParqueadero=$campoV['parqueadero_id'];
-              include_once("../../controlador/ControladorParqueadero.php");
-              $parqueadero= new ControladorParqueadero();
               $detalleParqueadero=$parqueadero->vistaDetalleFactura($idParqueadero);
               $campoP=mysqli_fetch_array($detalleParqueadero);
               ?>
               <div class="card-body">
                 <div class="row">
                   <section class="content content_content" style="width: 70%; margin: auto;">
-                    <section class="invoice">
+                    <section class="invoice" style="background-color: #242628;color: white">
                         <!-- title row -->
                       <div class="row">
                         <div class="col-xs-12">
@@ -120,7 +119,7 @@ include_once("plantillas/header.php");
                             <tbody>
                               <tr>
                                 <td><?php echo $campoV['fecha_entrada']; ?> </td>
-                                <td><?php echo ($factura->dias_pasados($campoV['fecha_entrada'],date("Y/m/d H:i:s"))."  minutos"); ?> </td>
+                                <td><?php echo ($campoF['tiempo_total']."  minutos"); ?> </td>
                                 <td><?php echo date("Y/m/d H:i:s") ; ?></td>
                                 <td> <button style="width: 20%; height: 15px; background-color: <?php echo $campoV['color']; ?>"></button> </td>
                               </tr>
@@ -151,14 +150,14 @@ include_once("plantillas/header.php");
                         <!-- this row will not appear when printing -->
                       <div class="row no-print">
                         <div class="col-xs-12">
-                          <a href="" class="btn btn-default"><i class="fa fa-print"></i> Imprimir Factura</a>
-                          <button class="btn btn-success pull-right"><i class="fa fa-download"></i>  Generar PDF  </button>                                
+                          <a  href="reporte.php?f=<?php echo $campoF['id_factura']; ?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Imprimir Factura</a>
+                          <a href="reporte.php?f=<?php echo $campoF['id_factura']; ?>" class="btn btn-success pull-right"><i class="fa fa-download"></i>  Generar PDF  </a>                                
                         </div>
                       </div>
                     </section>
                   </section>    
                 </div>
-                <a href="registrar.php" class="btn btn-primary">volver</a>   
+                <a href="listaFactura.php" class="btn btn-warning">volver</a>   
                 <!-- /.row -->
               </div>
               <!-- ./card-body -->
