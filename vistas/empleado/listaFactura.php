@@ -66,8 +66,6 @@
                         <th scope="col">No Factura</th>
                         <th scope="col">Tiempo total</th>
                         <th scope="col">Precio total</th>
-                        <th scope="col">placa vehiculo</th>
-                     
                         <th scope="col">DETALLE</th>
 
                       </tr>
@@ -79,7 +77,7 @@
                           <th><?php echo($espacio['id_factura']) ?></td>
                           <td><?php echo($espacio['tiempo_total']) ?></td>
                           <td><?php echo($espacio['precio_total']) ?></td>
-                          <td>xxxx</td>
+                          
                           <td><a href="detalleFactura.php?f=<?php echo($espacio['id_factura']) ?>" class="btn btn-success">DETALLE</a></td>                          
                         </tr>
                       </tbody>
