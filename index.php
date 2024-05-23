@@ -21,7 +21,7 @@
         <?php include_once("controlador/ControladorParqueadero.php"); 
         $cParqueadero= new ControladorParqueadero();
         $info=$cParqueadero->mostrar();
-        
+        //fyf
 
         ?>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
